@@ -1,5 +1,8 @@
 image: continuumio/miniconda3:latest
 
+stages:
+  - test
+
 before_script:
   - conda env create -f environment.yml
   - source activate impaej
@@ -9,9 +12,13 @@ tests36:
   script:
     - conda install python=3.6 -y
     - pytest -v
+  tags:
+    - shell
 
 tests35:
   stage: test
   script:
     - conda install python=3.5 -y
     - pytest -v
+  tags:
+    - shell
