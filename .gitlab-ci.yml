@@ -28,6 +28,9 @@ publishdocs:
   stage: docs
   script:
     - cd docs
+    - mkdir ._templates
+    - mkdir ._static
+    - mkdir ._build
     - make html
     - mv _build/html/ public/
   artifacts:
