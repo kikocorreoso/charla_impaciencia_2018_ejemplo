@@ -1,0 +1,6 @@
+=======
+Library
+=======
+
+.. automodule:: mylib
+   :members:
