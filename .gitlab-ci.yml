@@ -1,37 +1,32 @@
 image: continuumio/miniconda3:latest
 
 stages:
-  - config
   - test
   - docs
 
-config:
-  stage: config
-  script:
-    - apt-get update -qy
-    - apt-get install -y make
-    - conda update conda
-    - conda -V
-    - conda env create -f environment.yml
+before_script:
+  - apt-get update -qy
+  - apt-get install -y make
+  - conda update conda
+  - conda -V
+  - conda env create -f environment.yml
+  - source activate impaej
 
 tests35:
   stage: test
   script:
-    - source activate impaej
     - conda install python=3.5 -y
     - pytest -v
 
 tests36:
   stage: test
   script:
-    - source activate impaej
     - conda install python=3.6 -y
     - pytest -v
 
 pages:
   stage: docs
   script:
-    - source activate impaej
     - cd docs
     - mkdir ._templates
     - mkdir ._static
