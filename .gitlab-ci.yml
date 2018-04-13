@@ -2,6 +2,7 @@ image: continuumio/miniconda3:latest
 
 stages:
   - test
+  - docs
 
 before_script:
   - conda update conda
@@ -20,3 +21,15 @@ tests35:
   script:
     - conda install python=3.5 -y
     - pytest -v
+
+publishdocs:
+  stage: docs
+  script:
+    - cd docs
+    - make html
+    - mv _build/html/ public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
