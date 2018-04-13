@@ -1,16 +1,19 @@
 image: continuumio/miniconda3:latest
 
 stages:
+  - config
   - test
   - docs
 
-before_script:
-  - apt-get update -qy
-  - apt-get install -y make
-  - conda update conda
-  - conda -V
-  - conda env create -f environment.yml
-  - source activate impaej
+config:
+  stage: config
+  script:
+    - apt-get update -qy
+    - apt-get install -y make
+    - conda update conda
+    - conda -V
+    - conda env create -f environment.yml
+    - source activate impaej
 
 tests35:
   stage: test
@@ -32,7 +35,9 @@ publishdocs:
     - mkdir ._static
     - mkdir ._build
     - make html
-    - mv _build/html/ public/
+    - cd ..
+    - mkdir .public
+    - mv docs/_build/html/ public/
   artifacts:
     paths:
     - public
