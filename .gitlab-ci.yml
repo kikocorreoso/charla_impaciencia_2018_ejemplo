@@ -5,21 +5,23 @@ stages:
   - docs
 
 before_script:
+  - apt-get update -qy
+  - apt-get install -y make
   - conda update conda
   - conda -V
   - conda env create -f environment.yml
   - source activate impaej
 
-tests36:
-  stage: test
-  script:
-    - conda install python=3.6 -y
-    - pytest -v
-
 tests35:
   stage: test
   script:
     - conda install python=3.5 -y
+    - pytest -v
+
+tests36:
+  stage: test
+  script:
+    - conda install python=3.6 -y
     - pytest -v
 
 publishdocs:
