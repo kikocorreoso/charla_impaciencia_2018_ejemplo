@@ -7,7 +7,7 @@ stages:
 before_script:
   - apt-get update -qy
   - apt-get install -y make
-  - apt-get install texlive-xetex
+  - apt-get install -y texlive-xetex
   - conda update conda
   - conda -V
   - conda env create -f environment.yml
