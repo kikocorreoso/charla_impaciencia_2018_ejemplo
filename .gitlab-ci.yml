@@ -7,6 +7,7 @@ stages:
 before_script:
   - apt-get update -qy
   - apt-get install -y make
+  - apt-get install texlive-xetex
   - conda update conda
   - conda -V
   - conda env create -f environment.yml
@@ -35,6 +36,8 @@ pages:
     - cd ..
     - mkdir .public
     - mv docs/_build/html/ public/
+    - jupyter nbconvert notebooks/Paper.ipynb --to pdf --template notebooks/mytemplate.tplx
+    - mv notebooks/Paper.pdf public/
   artifacts:
     paths:
     - public

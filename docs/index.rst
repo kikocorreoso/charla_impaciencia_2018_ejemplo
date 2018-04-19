@@ -15,8 +15,12 @@ Welcome to Impaciencia 2018 Ejemplo's documentation!
    tutorial
    library   
    
+Read our paper
+==============
 
+`Paper (PDF)`_.
 
+.. _Paper (PDF): ./Paper.pdf
 
 Indices and tables
 ==================
