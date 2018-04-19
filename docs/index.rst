@@ -25,7 +25,8 @@ Read our paper
 Run our paper
 =============
 
-.. image:: https://mybinder.org/badge.svg :target: https://mybinder.org/v2/gh/kikocorreoso/charla_impaciencia_2018_ejemplo/master
+.. image:: https://mybinder.org/badge.svg 
+   :target: https://mybinder.org/v2/gh/kikocorreoso/charla_impaciencia_2018_ejemplo/master/master
 
 Indices and tables
 ==================
